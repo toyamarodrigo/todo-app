@@ -1,22 +1,34 @@
-import React, { useState } from 'react';
-import {
-  Grid,
-  FormControl,
-  Select,
-  MenuItem,
-} from '@material-ui/core';
-import { Delete, CheckCircle } from '@material-ui/icons';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import { Form } from './components/Form/Form';
 import { Header } from './components/Header/Header';
 import { TodoList } from './components/TodoList/TodoList';
-import { Filter } from './components/Filter/Filter';
 
 function App() {
-  const [task, setTask] = useState('all');
+  // States
+  const [status, setStatus] = useState('all');
   const [inputText, setInputText] = useState('');
   const [todos, setTodos] = useState([]);
+  const [filteredTodos, setFilteredTodos] = useState([]);
+
+  const filterHandler = () => {
+    switch (status) {
+      case 'completed':
+        setFilteredTodos(todos.filter((todo) => todo.completed === true));
+        break;
+      case 'uncompleted':
+        setFilteredTodos(todos.filter((todo) => todo.completed === false));
+        break;
+      default:
+        setFilteredTodos(todos);
+        break;
+    }
+  };
+
+  useEffect(() => {
+    filterHandler();
+  }, [todos, status]);
 
   return (
     <div className="App">
@@ -26,11 +38,16 @@ function App() {
         setInputText={setInputText}
         todos={todos}
         setTodos={setTodos}
+        status={status}
+        setStatus={setStatus}
+        filteredTodos={filteredTodos}
       />
-      <Filter task={task}/>
 
-      <TodoList todos={todos} />
-
+      <TodoList
+        todos={todos}
+        setTodos={setTodos}
+        filteredTodos={filteredTodos}
+      />
     </div>
   );
 }

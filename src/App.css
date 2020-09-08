@@ -12,3 +12,8 @@
 .todo-list {
   text-align: center;
 }
+
+.completed {
+  text-decoration-line: line-through;
+  opacity: 0.5;
+}

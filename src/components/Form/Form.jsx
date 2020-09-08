@@ -1,9 +1,17 @@
 import React from 'react';
 import { Grid, TextField, Button } from '@material-ui/core';
 import { AddCircle } from '@material-ui/icons';
+import { Filter } from '../Filter/Filter';
 const shortid = require('shortid');
 
-export const Form = ({ todos, setTodos, inputText, setInputText }) => {
+export const Form = ({
+  todos,
+  setTodos,
+  inputText,
+  setInputText,
+  status,
+  setStatus,
+}) => {
   const inputTextHandler = (event) => {
     event.preventDefault();
     console.log(event.target.value);
@@ -41,6 +49,7 @@ export const Form = ({ todos, setTodos, inputText, setInputText }) => {
           </Button>
         </Grid>
       </Grid>
+      <Filter status={status} setStatus={setStatus} />
     </form>
   );
 };
