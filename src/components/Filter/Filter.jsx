@@ -1,11 +1,10 @@
 import React from 'react';
 import { Grid, FormControl, Select, MenuItem } from '@material-ui/core';
 
-import './Filter.css'
+import './Filter.css';
 
 export const Filter = ({ status, setStatus }) => {
   const statusHandler = (event) => {
-    console.log(event.target.value);
     setStatus(event.target.value);
   };
 
