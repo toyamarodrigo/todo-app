@@ -1,6 +1,4 @@
 # Todo-app with React & Material-UI
-<<<<<<< HEAD
-=======
 
 ## Todo
 
@@ -8,4 +6,3 @@
 * [ ] Add Categories / Tags / Colors.
 * [ ] Responsive.
 * [ ] ...
->>>>>>> dev
