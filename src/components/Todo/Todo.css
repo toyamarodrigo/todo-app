@@ -1,0 +1,17 @@
+.card-item {
+  margin: 2em 0;
+}
+
+.card-completed {
+  background-color: rgb(220, 220, 220)!important;
+}
+
+.completed {
+  text-decoration-line: line-through;
+  opacity: 0.5;
+}
+
+.todo-item {
+  word-wrap: break-word;
+  padding: 0 1em;
+}
