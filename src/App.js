@@ -42,12 +42,8 @@ function App() {
     }
   };
 
-  // useEffect
   useEffect(() => {
     getLocalTodos();
-  }, []);
-
-  useEffect(() => {
     filterHandler();
     saveLocalTodos();
   }, [todos, status]);
